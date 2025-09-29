@@ -40,6 +40,16 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 - 📤 **Export**: get clean CSV/JSON for research or production pipelines.
 
 ## 🖼️ Screenshots (demo)
+<p align="center">
+  <img src="image1.png" width="450" />
+  <img src="image2.png" width="450" />
+  <img src="image3.png" width="450" />
+  <img src="image31.png" width="450" />
+  <img src="image4.png" width="450" />
+  <img src="image5.png" width="450" />
+  <img src="image6.png" width="450" />
+  <img src="image7.png" width="450" />
+</p>
 
 ## 🏗️ Architecture
 
