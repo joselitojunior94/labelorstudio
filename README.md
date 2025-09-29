@@ -78,7 +78,7 @@ python manage.py runserver
 #### Run the front-end
 
 ```bash
-cd ../app
+cd ../labelor_studio_app
 flutter pub get
 
 # set your backend URL in kApiBaseUrl
