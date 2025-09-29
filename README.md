@@ -41,14 +41,14 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 
 ## 🖼️ Screenshots (demo)
 <p align="center">
-  <img src="image1.png" width="450" />
-  <img src="image2.png" width="450" />
-  <img src="image3.png" width="450" />
-  <img src="image31.png" width="450" />
-  <img src="image4.png" width="450" />
-  <img src="image5.png" width="450" />
-  <img src="image6.png" width="450" />
-  <img src="image7.png" width="450" />
+  <img src="image1.png" width="350" />
+  <img src="image2.png" width="350" />
+  <img src="image3.png" width="350" />
+  <img src="image31.png" width="350" />
+  <img src="image4.png" width="350" />
+  <img src="image5.png" width="350" />
+  <img src="image6.png" width="350" />
+  <img src="image7.png" width="350" />
 </p>
 
 ## 🏗️ Architecture
