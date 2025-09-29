@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo_without_background.png" width="450" alt="Logo"/>
+  <img src="images/logo_without_background.png" width="450" alt="Logo"/>
 </p>
 
 <p align="center">
@@ -41,14 +41,14 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 
 ## 🖼️ Screenshots (demo)
 <p align="center">
-  <img src="image1.png" width="350" />
-  <img src="image2.png" width="350" />
-  <img src="image3.png" width="350" />
-  <img src="image31.png" width="350" />
-  <img src="image4.png" width="350" />
-  <img src="image5.png" width="350" />
-  <img src="image6.png" width="350" />
-  <img src="image7.png" width="350" />
+  <img src="images/image1.png" width="350" />
+  <img src="images/image2.png" width="350" />
+  <img src="images/image3.png" width="350" />
+  <img src="images/image31.png" width="350" />
+  <img src="images/image4.png" width="350" />
+  <img src="images/image5.png" width="350" />
+  <img src="images/image6.png" width="350" />
+  <img src="images/image7.png" width="350" />
 </p>
 
 ## 🏗️ Architecture
