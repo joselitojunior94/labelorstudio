@@ -58,6 +58,96 @@ class _ItemsPageState extends State<ItemsPage> {
     _load();
   }
 
+  Future<void> _suggest(Map<String, dynamic> item) async {
+  try {
+    final api = await _api();
+    final pair = _extractTitleBody(item['data'] as Map);
+    final s = await api.geminiSuggestSimple(title: pair['title']!, body: pair['body']!);
+
+    if (!mounted) return;
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: const Text('Sugestão (Gemini)'),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 520),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(children: [
+                const Icon(Icons.label_outline),
+                const SizedBox(width: 8),
+                Text('${s['label'] ?? '-'}', style: const TextStyle(fontWeight: FontWeight.w700)),
+              ]),
+              const SizedBox(height: 10),
+              if ((s['reason'] ?? '').toString().isNotEmpty) ...[
+                const Text('Reason:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const SizedBox(height: 6),
+                SelectableText('${s['reason']}'),
+              ],
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close')),
+        ],
+      ),
+    );
+  } catch (e) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erro: $e')));
+  }
+}
+
+
+  Map<String, String> _extractTitleBody(Map dataRaw) {
+    final data = dataRaw.cast<String, dynamic>();
+
+    String title = '';
+    String body  = '';
+
+    
+    const titleKeys = ['title', 'subject', 'headline', 'summary', 'titulo', 'assunto'];
+    const bodyKeys  = ['body', 'description', 'text', 'content', 'message', 'descricao', 'texto'];
+
+    for (final k in titleKeys) { if (data.containsKey(k)) { title = '${data[k]}'; break; } }
+    for (final k in bodyKeys)  { if (data.containsKey(k)) { body  = '${data[k]}'; break; } }
+
+  
+    if (title.isEmpty || body.isEmpty) {
+      final roles = <String, String>{};
+      for (final c in _columns) {
+        final name = (c['mapped_name'] ?? c['name_in_file']) as String;
+        final role = (c['role'] ?? 'FEATURE') as String;
+        roles[name] = role; 
+      }
+
+    
+      if (body.isEmpty) {
+        final textFields = data.entries.where((e) => (roles[e.key] ?? 'FEATURE') == 'TEXT').map((e) => '${e.value}').toList();
+        if (textFields.isNotEmpty) {
+          body = textFields.take(2).join('\n\n'); 
+        }
+      }
+
+      if (title.isEmpty) {
+        final idKey = data.keys.firstWhere(
+          (k) => (roles[k] ?? '') == 'ID',
+          orElse: () => data.keys.first,
+        );
+        title = 'Item ${data[idKey] ?? ''}'.trim();
+      }
+    }
+
+  
+    if (title.trim().isEmpty)  title = 'Item';
+    if (body.trim().isEmpty)   body  = title; 
+
+    return {'title': title, 'body': body};
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +169,11 @@ class _ItemsPageState extends State<ItemsPage> {
                         tooltip: 'View',
                         icon: const Icon(Icons.visibility_outlined),
                         onPressed: () => _openDetail(it),
+                      ),
+                      IconButton(
+                        tooltip: 'AI suggestion',
+                        icon: const Icon(Icons.auto_awesome),
+                        onPressed: () => _suggest(it),
                       ),
                       IconButton(
                         tooltip: 'Judge',

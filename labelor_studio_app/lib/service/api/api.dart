@@ -24,6 +24,21 @@ class Api {
   }
 
 
+  Future<Map<String, dynamic>> geminiSuggestSimple({
+    required String title,
+    required String body,
+  }) async {
+    final r = await http.post(
+      Uri.parse('$kApiBaseUrl/api/gemini/suggest/'),
+      headers: _h({'Content-Type': 'application/json'}),
+      body: jsonEncode({'title': title, 'body': body}),
+    );
+    if (r.statusCode != 200) {
+      throw Exception('geminiSuggest: ${r.statusCode} ${r.body}');
+    }
+    return jsonDecode(r.body) as Map<String, dynamic>;
+  }
+
   Future<Map<String, dynamic>> upload({
     required Uint8List bytes,
     required String filename,
