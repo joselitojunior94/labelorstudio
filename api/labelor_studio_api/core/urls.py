@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from . import views
-from .views import UploadCsvView, DatasetViewSet, save_mapping, EvaluationViewSet, JudgmentCreateView, ReviewCreateView, EvaluationItemsView, evaluation_metrics, evaluation_results, export_results_csv, export_results_json, close_evaluation
+from .views import UploadCsvView, DatasetViewSet, save_mapping, EvaluationViewSet, JudgmentCreateView, ReviewCreateView, EvaluationItemsView, evaluation_metrics, evaluation_results, export_results_csv, export_results_json, close_evaluation, ai_suggest
 
 router = routers.DefaultRouter()
 router.register(r'datasets', DatasetViewSet, basename='dataset')
@@ -20,6 +20,7 @@ urlpatterns = [
   path('evaluations/<int:eval_id>/export/csv/', export_results_csv),
   path('evaluations/<int:eval_id>/export/json/', export_results_json),
   path('evaluations/<int:eval_id>/close/', close_evaluation),
+  path("gemini/suggest/", ai_suggest, name="ai-suggest"),
 
   path('', include(router.urls)),
 ]

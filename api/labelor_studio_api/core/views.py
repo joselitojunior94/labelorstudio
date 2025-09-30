@@ -9,9 +9,12 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.db import transaction
 from .models import Dataset, DatasetItem, DatasetColumn, Evaluation, Judgment, Review
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from .serializers import DatasetSerializer, DatasetItemSerializer, EvaluationSerializer
 from django.db import models as djm
+from openai import OpenAI
+import csv, io, json, os
+
 
 import csv, io, json
 
@@ -233,3 +236,51 @@ def close_evaluation(request, eval_id):
         return Response({'detail':'only owner can close'}, status=403)
     ev.status='closed'; ev.save(update_fields=['status'])
     return Response({'ok': True, 'status': ev.status})
+
+
+client = OpenAI(api_key="<<ADD KEY>>")
+MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def ai_suggest(request):
+    
+    title = (request.data.get("title") or "").strip()
+    body  = (request.data.get("body") or "").strip()
+    if not title and not body:
+        return Response({"error": "Informe title ou body"}, status=400)
+
+    try:
+        prompt = f"""
+        You are a labeling wizard.
+        Analyze the following item (title + description) and suggest a short label and a rationale. 
+        Respond **in JSON only** in the format:
+        {{"label": "...", "reason": "..."}}
+
+        Title: {title}
+        Description: {body}
+        """
+
+        resp = client.chat.completions.create(
+            model=MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+        )
+
+        content = resp.choices[0].message.content.strip()
+
+        
+        try:
+            parsed = json.loads(content)
+        except Exception:
+            parsed = {"label": None, "reason": content[:300]}
+
+        out = {
+            "label": parsed.get("label"),
+            "reason": parsed.get("reason"),
+            "_model": MODEL,
+        }
+        return Response(out, status=200)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=500)
