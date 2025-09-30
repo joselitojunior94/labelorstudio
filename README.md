@@ -41,7 +41,7 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 
 ## 🎬 Video (Demo)
 
-[![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=jo9cX-2isEk)
+[![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jJqE0kXNyu4)
 
 
 ## 🖼️ Screenshots (Demo)
