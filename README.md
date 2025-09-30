@@ -39,7 +39,12 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 - 📈 **Metrics**: compute inter-rater reliability to validate results.  
 - 📤 **Export**: get clean CSV/JSON for research or production pipelines.
 
-## 🖼️ Screenshots (demo)
+## 🎬 Video (Demo)
+
+[![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=jo9cX-2isEk)
+
+
+## 🖼️ Screenshots (Demo)
 <p align="center">
   <img src="images/image1.png" width="350" />
   <img src="images/image2.png" width="350" />
