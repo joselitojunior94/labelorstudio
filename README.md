@@ -32,7 +32,7 @@
 ## 🎬 Video (Demo)
 
 [![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jJqE0kXNyu4)
-[![🚀 Try Tool](https://img.shields.io/badge/🚀%20Try%20Tool-1DA1F2?style=for-the-badge&logo=github&logoColor=white)]([https://labelorstudio.netlify.app/])
+[![🚀 Try Tool](https://img.shields.io/badge/🚀%20Try%20Tool-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://labelorstudio.netlify.app)
 
 
 ## ✨ What is this?
