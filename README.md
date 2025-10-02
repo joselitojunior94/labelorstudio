@@ -28,6 +28,11 @@
   <img alt="Pages" src="https://img.shields.io/badge/GitHub%20Pages-Live-0ea5e9?style=for-the-badge&logo=githubpages&logoColor=white">
 </p>
 
+
+## 🎬 Video (Demo)
+
+[![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jJqE0kXNyu4)
+
 ## ✨ What is this?
 **Labelor Studio** is a full-stack tool to orchestrate human assessments over structured data (CSV).  
 It enables researchers, developers, and teams to **upload datasets, invite collaborators, and collect judgments/reviews** — with automatic agreement metrics like **Cohen’s κ**.
@@ -38,11 +43,6 @@ It enables researchers, developers, and teams to **upload datasets, invite colla
 - ⚡ **Automation**: integrates with LLMs to pre-label or suggest judgments.  
 - 📈 **Metrics**: compute inter-rater reliability to validate results.  
 - 📤 **Export**: get clean CSV/JSON for research or production pipelines.
-
-## 🎬 Video (Demo)
-
-[![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jJqE0kXNyu4)
-
 
 ## 🖼️ Screenshots (Demo)
 <p align="center">
