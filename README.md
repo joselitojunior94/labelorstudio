@@ -34,7 +34,6 @@
 [![Watch the demo](https://img.shields.io/badge/▶️%20Watch%20Demo-8B5CF6?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jJqE0kXNyu4)
 [![🚀  Open the online tool](https://img.shields.io/badge/🚀%20Testar%20Ferramenta-1DA1F2?style=for-the-badge&logo=github&logoColor=white)]([https://youtu.be/jJqE0kXNyu4](https://labelorstudio.netlify.app/))
 
-https://labelorstudio.netlify.app/
 
 ## ✨ What is this?
 **Labelor Studio** is a full-stack tool to orchestrate human assessments over structured data (CSV).  
